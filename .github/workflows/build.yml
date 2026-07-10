@@ -19,5 +19,6 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm install
+    - run: npm install --no-package-lock
+    - run: npx sass src/site/styles:dist/styles --style compressed || true
     - run: npm run build --if-present
